@@ -246,6 +246,10 @@ body {
   margin-left: 5px;
 }
 
+.registr__link svg {
+  stroke: #8D8D8D;
+}
+
 .registr .form__bottom {
   margin-top: 20px;
   text-align: center;
@@ -266,6 +270,9 @@ body {
   line-height: 121%;
   color: #0000CD;
   margin-left: 5px;
+  -webkit-transition: color 0.3s ease 0s;
+  -o-transition: color 0.3s ease 0s;
+  transition: color 0.3s ease 0s;
 }
 
 .form {
@@ -307,6 +314,10 @@ body {
   margin-bottom: 20px;
 }
 
+.form__item.red .error {
+  display: block;
+}
+
 .form__item.red input {
   color: #EB5757;
   border: 1px solid #EB5757;
@@ -329,10 +340,14 @@ body {
   font-size: 14px;
   line-height: 121%;
   color: #0000CD;
+  -webkit-transition: color 0.3s ease 0s;
+  -o-transition: color 0.3s ease 0s;
+  transition: color 0.3s ease 0s;
 }
 
 .form__item.checkbox input:checked + label::before {
-  border: 1px solid #FF862F;
+  border: 0;
+  background: #0075FF;
 }
 
 .form__item.checkbox input:checked + label::after {
@@ -367,7 +382,7 @@ body {
   content: url("../img/checkmark.svg");
   position: absolute;
   top: 50%;
-  left: -16px;
+  left: -17px;
   -webkit-transform: translateY(-50%);
       -ms-transform: translateY(-50%);
           transform: translateY(-50%);
@@ -396,7 +411,9 @@ body {
 
 .form__input:focus {
   background: #E7E6E6;
-  border: 1px solid #CCCCCC;
+  border: 1px solid #66AFE9;
+  -webkit-box-shadow: 0px 0px 6px rgba(102, 175, 233, 0.7), inset 0px 2px 4px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 0px 6px rgba(102, 175, 233, 0.7), inset 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .form .error {
@@ -608,12 +625,31 @@ body {
 }
 
 @media (any-hover: hover) {
+  .registr__link:hover {
+    -webkit-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+    color: #FF862F;
+  }
+
+  .registr__link:hover svg {
+    stroke: #FF862F;
+  }
+
+  .registr .form__bottom a:hover {
+    color: #FF862F;
+  }
+
+  .form__item.checkbox a:hover {
+    color: #FF862F;
+  }
+
   .form__btn:hover {
-    background: #db6d1e;
+    color: #555555;
   }
 
   .btn:hover {
-    background: #db6d1e;
+    color: #555555;
   }
 
   .transparent:hover {
