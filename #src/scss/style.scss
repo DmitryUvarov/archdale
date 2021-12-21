@@ -1,0 +1,493 @@
+@import "mixin";
+
+
+// <ОБНУЛЕНИЕ СТИЛЕЙ> =============================================================================================================
+@import "reset";
+// </ОБНУЛЕНИЕ СТИЛЕЙ> =============================================================================================================
+
+// Подключение шрифтов =============================================================================================================
+@import "fonts";
+// \Подключение шрифтов =============================================================================================================
+
+
+// Иконочные шрифты SVG =============================================================================================================
+@import "icons";
+// \Иконочные шрифты SVG =============================================================================================================
+
+
+// Шрифт по умолчанию =============================================================================================================
+$FontFamily: "Myriad Pro";
+$FontSize: 16;
+// \Шрифт по умолчанию =============================================================================================================
+
+
+// <ПЕРЕМЕННЫЕ> =============================================================================================================
+$minWidth: 320px;
+$maxWidth: 1440;
+$maxWidthContainer: 1470; // ширина контейнера у проекта без px
+$md1: $maxWidthContainer + 12;
+$md2: 991.98;
+$md3: 767.98;
+$md4: 479.98;
+
+// COLOR
+$mainColor: #000;
+// </ПЕРЕМЕННЫЕ> =============================================================================================================
+
+
+
+
+
+*,
+::before,
+::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    line-height: 1;
+    height: 100%;
+    color: $mainColor;
+    font-family: $FontFamily;
+    overflow-x: hidden;
+}
+.wrapper {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+._container {
+    max-width: $maxWidthContainer + px;
+    padding: 0 15px;
+    margin: 0 auto;
+  /*  @media (max-width: $md1+px) {
+        max-width: 970px;
+    }
+    @media (max-width: $md2+px) {
+        max-width: 750px;
+    }
+    @media (max-width: $md3+px) {
+        max-width: none;
+        padding: 0 10px;
+    }  */
+}
+
+
+// <ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЕЛЕМЕНТОВ>
+
+@import "header.scss";
+@import "footer.scss";
+@import "forms.scss"; /// Общие стиля для кнопок и елементов форм
+@import "ui.scss";   /// Общие стили для елементов
+
+// </ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЕЛЕМЕНТОВ>
+
+
+
+// ОСНОВНОЙ БЛОК ==========================================================================================================
+.page {
+    flex: 1 1 auto;
+}
+
+
+// \ОСНОВНОЙ БЛОК ==========================================================================================================
+/*
+.mask {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+
+}*/
+.registr {
+    background-image: url('../img/bg.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    &__container {
+    }
+    &__body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 40px 0 40px;
+    }
+    &__logo {
+        margin-bottom: 40px;
+        & img {
+            @include adaptive-value("width", 293, 241, 1);
+            display: block;
+        }
+
+    }
+    &__form-block {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: #FFFFFF;
+        border: 1px solid #FF862F;
+        box-shadow: 0px 4px 23px rgba(0, 0, 0, 0.1);
+        padding-top: 50px;
+        padding-bottom: 50px;
+        @include adaptive-value("padding-left", 85, 24, 1);
+        @include adaptive-value("padding-right", 85, 24, 1);
+        position: relative;
+        max-width: 467px;
+        width: 100%;
+    }
+    &__link {
+        font-family: "Myriad Pro";
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 121%;
+        color: #8D8D8D;
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        display: flex;
+        align-items: center;
+        & span {
+            margin-left: 5px;
+        }
+        &.back {
+        }
+    }
+    &__form {
+    }
+
+
+
+
+
+
+
+    .form__bottom {
+        margin-top: 20px;
+        text-align: center;
+        & span {
+            font-family: "Myriad Pro";
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 121%;
+            color: #3C3C3C;
+        }
+        & a {
+            font-family: "Myriad Pro";
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 121%;
+            color: #0000CD;
+            margin-left: 5px;
+        }
+    }
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__title {
+        font-family: "Myriad Pro";
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 122%;
+        text-transform: uppercase;
+        color: #000000;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    &__description {
+        font-family: "Myriad Pro";
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 120%;
+        text-align: center;
+        color: #8D8D8D;
+        max-width: 230px;
+        margin: 0 auto 20px;
+    }
+
+    &__item {
+        &:not(:last-child) {
+            margin-bottom: 20px;
+        }
+        &.red {
+            & input {
+                color: #EB5757;
+                border: 1px solid #EB5757;
+            }
+        }
+        &.checkbox {
+            display: flex;
+            justify-content: space-between;
+            width: 296px;
+            padding-left: 18px;
+            & a {
+                font-family: "Myriad Pro";
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 121%;
+                color: #0000CD;
+            }
+
+            & input:checked + label {
+                &::before {
+                    border: 1px solid #FF862F;
+                }
+                &::after {
+                    display: block;
+                }
+            }
+            & label {
+                font-family: "Myriad Pro";
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 121%;
+                color: #3C3C3C;
+                cursor: pointer;
+                position: relative;
+                &::before {
+                    content: "";
+                    position: absolute;
+                    border: 1px solid #CCCCCC;
+                    border-radius: 2px;
+                    top: 50%;
+                    left: -18px;
+                    transform: translateY(-50%);
+                    width: 13px;
+                    height: 13px;
+                }
+                &::after {
+                    content: url('../img/checkmark.svg');
+                    position: absolute;
+                    top: 50%;
+                    left: -16px;
+                    transform: translateY(-50%);
+                    display: none;
+                }
+            }
+            & input {
+                display: none;
+            }
+        }
+    }
+    &__input {
+        background: #E7E6E6;
+        border: 1px solid #CCCCCC;
+        box-sizing: border-box;
+        box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.1);
+        padding: 12px;
+        font-family: "Myriad Pro";
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 120%;
+        color: #8D8D8D;
+        width: 296px;
+
+        &:focus {
+            background: #E7E6E6;
+            border: 1px solid #CCCCCC;
+        }
+    }
+    .required {
+    }
+    .red {
+    }
+    .error {
+        display: none;
+        max-width: 296px;
+        margin-top: 5px;
+
+        & div {
+
+        }
+        & span {
+            font-family: "Myriad Pro";
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 121%;
+            color: #EB5757;
+        }
+        & b {
+            font-weight: 600;
+        }
+        & a {
+            font-family: "Myriad Pro";
+            font-weight: 300;
+            font-size: 14px;
+            line-height: 121%;
+            color: #0000CD;
+        }
+    }
+    &__btn {
+        cursor: pointer;
+        background: #FF862F;
+        font-family: "Myriad Pro";
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 119%;
+        color: #FFFFFF;
+        padding: 8px;
+        width: 296px;
+        transition: all 0.3s ease 0s;
+        @media (any-hover: hover) {
+            &:hover {
+                background: #db6d1e;
+            }
+        }
+    }
+}
+
+
+.form__bodyone {
+    display: block;
+}
+.form__bodytwo {
+    display: block;
+
+
+
+    & h3 {
+        font-family: "Myriad Pro";
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 122%;
+        text-align: center;
+        text-transform: uppercase;
+        color: #8D8D8D;
+        margin-bottom: 15px;
+    }
+    .form__img {
+        margin-top: 15px;
+        margin-bottom: 15px;
+        display: flex;
+        justify-content: center;
+    }
+    .information__block {
+    }
+    .information__item {
+        font-family: "Myriad Pro";
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 120%;
+        color: #000000;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    .buttons__block {
+        display: flex;
+        flex-direction: column;
+    }
+
+}
+
+.btn {
+    cursor: pointer;
+    display: block;
+    text-align: center;
+    background: #FF862F;
+    padding: 8px;
+    width: 296px;
+    margin: 10px auto 0;
+    color: #fff;
+    transition: all 0.3s ease 0s;
+    @media (any-hover: hover) {
+        &:hover {
+            background: #db6d1e;
+        }
+    }
+}
+.transparent {
+    border: 1px solid #4F4F4F;
+    background: transparent;
+    color: #4F4F4F;
+    @media (any-hover: hover) {
+        &:hover {
+            color: #fff;
+            background: #FF862F;
+            border: 1px solid #FF862F;
+        }
+    }
+}
+
+
+
+.quality__items {
+    display: flex;
+    margin: 0 -10px 0;
+    flex-wrap: wrap;
+    justify-content: center;
+
+
+    .quality__item {
+        margin: 20px 9px 0;
+        position: relative;
+    }
+    .item-quality {
+        @media (min-width: $md4+px) {
+            &.one {
+            }
+            &.two {
+                .item-quality__title {
+                    top: 80px;
+                }
+            }
+            &.three {
+                .item-quality__title {
+                   top: 147px;
+                }
+            }
+        }
+    }
+    .item-quality__title {
+        position: absolute;
+        background: linear-gradient(180deg, #FF8218 0%, #FEBD8E 100%);
+        box-shadow: 0px 4.56521px 11.413px rgba(0, 0, 0, 0.25);
+        top: 15px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-family: "Myriad Pro";
+        white-space: pre;
+        font-weight: 600;
+        line-height: 122%;
+        text-transform: uppercase;
+        color: #FFFFFF;
+        @include adaptive-value("font-size", 27, 20, 1);
+        @include adaptive-value("padding-top", 6.85, 5, 1);
+        @include adaptive-value("padding-bottom", 6.85, 5, 1);
+        @include adaptive-value("padding-left", 19, 15, 1);
+        @include adaptive-value("padding-right", 19, 15, 1);
+    }
+    .item-quality__img {
+
+        & img {
+            display: block;
+            max-width: 100%;
+        }
+    }
+}
+
+
+
+
+//page login ========================
+
+.login {
+    .form__bodytwo{
+        height: 286px;
+        position: relative;
+        top: -100px;
+    }
+}
+//page login ========================
